@@ -1,0 +1,58 @@
+{
+  "domain": "greeting1.dmall.com",
+  "config": {
+    "condition": null,
+    "group_config": {
+      "canary_gray": {
+        "exact": {},
+        "prefix": {},
+        "suffix": {},
+        "regex": {},
+        "pars": {}
+      },
+      "online_blue": {
+        "exact": {},
+        "prefix": {
+          "manual.router.add": {
+            "/": "10.248.4.117@8101"
+          },
+          "channel.max.connections": {
+            "/": "1"
+          },
+          "fail.max.retries": {
+            "/": "1"
+          }
+        },
+        "suffix": {},
+        "regex": {},
+        "pars": {}
+      },
+      "online_green": {
+        "exact": {},
+        "prefix": {
+          "manual.router.add": {
+            "/": "10.248.4.117@8101"
+          },
+          "channel.max.connections": {
+            "/": "1"
+          },
+          "fail.max.retries": {
+            "/": "1"
+          }
+        },
+        "suffix": {},
+        "regex": {},
+        "pars": {}
+      }
+    },
+    "domain_config": {
+      "exact": {},
+      "prefix": {},
+      "suffix": {},
+      "regex": {},
+      "pars": {}
+    },
+    "instance": []
+  },
+  "env": "inner."
+}
