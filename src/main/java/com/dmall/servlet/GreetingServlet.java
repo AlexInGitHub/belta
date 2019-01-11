@@ -43,7 +43,7 @@ public class GreetingServlet extends HttpServlet {
             }
             int latency = WebAppConf.getLatency(domain, uri);
             if(latency != 0) {
-                log.info(String.format("Thready is gonna sleep %ss", latency));
+                log.info(String.format("Thready is gonna sleep %s(ms)", latency));
                 Thread.sleep(latency);
             }
         }
