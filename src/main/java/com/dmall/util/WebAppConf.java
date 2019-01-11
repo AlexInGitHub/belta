@@ -101,4 +101,8 @@ public class WebAppConf {
 
         return "OK";
     }
+
+    public static void shutdown() {
+        executor.shutdownNow();
+    }
 }
