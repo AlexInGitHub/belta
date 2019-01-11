@@ -11,7 +11,7 @@
 
     <servlet-mapping>
         <servlet-name>greeting</servlet-name>
-        <url-pattern>/greeting</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <listener>
