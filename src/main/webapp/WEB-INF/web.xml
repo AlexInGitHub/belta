@@ -5,12 +5,16 @@
          version="4.0">
 
     <servlet>
-    <servlet-name>greeting</servlet-name>
-    <servlet-class>com.dmall.GreetingServlet</servlet-class>
+        <servlet-name>greeting</servlet-name>
+        <servlet-class>com.dmall.servlet.GreetingServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-    <servlet-name>greeting</servlet-name>
-    <url-pattern>/greeting</url-pattern>
+        <servlet-name>greeting</servlet-name>
+        <url-pattern>/greeting</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>com.dmall.listener.Listener</listener-class>
+    </listener>
 </web-app>

@@ -1,4 +1,4 @@
-package com.dmall;
+package com.dmall.test;
 
 import com.google.common.io.ByteStreams;
 import org.apache.http.HttpResponse;

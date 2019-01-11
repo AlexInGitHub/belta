@@ -1,4 +1,4 @@
-package com.dmall;
+package com.dmall.test;
 
 import java.util.ArrayList;
 import java.util.List;
