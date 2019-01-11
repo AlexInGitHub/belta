@@ -2,6 +2,8 @@ package com.dmall.util;
 
 import org.apache.log4j.Logger;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Properties;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -27,11 +29,17 @@ public class WebAppConf {
             return;
         }
 
+        final String path = getConfPath();
         executor.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
                 try {
-                    props.load(WebAppConf.class.getResourceAsStream("/app.properties"));
+                    if(path == null) {
+                        props.load(WebAppConf.class.getResourceAsStream("/app.properties"));
+                    }
+                    else {
+                        props.load(new FileInputStream(path));
+                    }
                 }
                 catch (Exception e) {
                     log.error("Failed to load properties", e);
@@ -39,6 +47,26 @@ public class WebAppConf {
             }
         }, 0, 10, TimeUnit.SECONDS);
 
+    }
+
+    private static String getConfPath() {
+        String path = System.getProperty("app.conf");
+        if(path != null) {
+            File file = new File(path);
+            if(file.exists() && file.isFile()) {
+                log.info(String.format("Load properties from: %s", path));
+                return path;
+            }
+        }
+
+        path = "/web/servers/conf/app.properties";
+        File file = new File(path);
+        if(file.exists() && file.isFile()) {
+            log.info(String.format("Load properties from: %s", path));
+            return path;
+        }
+
+        return null;
     }
 
     public static String getProperty(String key) {
